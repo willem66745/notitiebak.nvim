@@ -3,7 +3,7 @@
 ---@field default_note? string | fun(): string Your first note
 local defaults = {
   notes_directory = '~/notes',
-  default_note = require('notitiebak.note_names').todays_date,
+  default_note = 'todays_date',
 }
 
 local M = {}

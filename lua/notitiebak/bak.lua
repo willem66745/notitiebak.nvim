@@ -56,6 +56,13 @@ local function general_note_filename()
   local name = config.default_note
   if type(name) == 'function' then
     name = name()
+  elseif type(name) == 'string' then
+    local funs = require('notitiebak.note_names')
+    if funs[name] ~= nil then
+      name = funs[name]()
+    end
+  else
+    error('unsupported type provided to option "default_note": ' .. type(name))
   end
   local file = to_filename(name)
 

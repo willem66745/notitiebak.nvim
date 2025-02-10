@@ -9,7 +9,13 @@ end
 -- Return the activate branch name
 ---@return string
 function M.branch_name()
-  return vim.fn.systemlist('git branch --show-current')[1]
+  local branch = vim.fn.systemlist('git branch --show-current')[1]
+  local code = vim.v.shell_error
+  if code == 0 then
+    return branch
+  else
+    return 'general_note'
+  end
 end
 
 return M
