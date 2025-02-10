@@ -1,9 +1,11 @@
 ---@class notitiebak.Config
 ---@field notes_directory? string Your notes directory
 ---@field default_note? string | fun(): string Your first note
+---@field template? string Optional template file
 local defaults = {
   notes_directory = '~/notes',
   default_note = 'todays_date',
+  template = '~/notes/.template.md',
 }
 
 local M = {}

@@ -29,8 +29,11 @@ The default settings are:
 {
   notes_directory = '~/notes',
   default_note = 'todays_date',
+  template = '~/notes/.template.md',
 }
 ```
+
+### Default note
 
 The `default_note` can be string, which will result that every note will end
 up in the same file.
@@ -40,3 +43,8 @@ Also when providing a special value as text can yield dynamic behavior:
 
 * Today's date: `todays_date`
 * Current branch name: `branch_name`
+
+### Template
+
+When note doesn't exist, the template will be used to populate the initial
+note.

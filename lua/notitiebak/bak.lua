@@ -18,10 +18,15 @@ local function create_note(name, path)
   local buf = vim.api.nvim_create_buf(true, false)
   vim.fn.setbufline(buf, 1, '# ' .. name)
   vim.fn.setbufline(buf, 2, '')
-  vim.fn.setbufline(buf, 3, '')
   local win = vim.api.nvim_get_current_win()
   vim.api.nvim_win_set_buf(win, buf)
-  vim.api.nvim_win_set_cursor(win, { 3, 0 })
+  vim.api.nvim_win_set_cursor(win, { 2, 0 })
+
+  local template = vim.fn.expand(config.template)
+  if vim.fn.filereadable(template) == 1 then
+    vim.fn.execute('read ' .. config.template)
+  end
+
   vim.api.nvim_command('write ' .. path)
 end
 
@@ -79,7 +84,9 @@ end
 local function search_note_buffer(filename)
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
     if vim.fn.expand(vim.api.nvim_buf_get_name(buf)) == filename then
-      return buf
+      if vim.fn.buflisted(buf) == 1 then
+        return buf
+      end
     end
   end
 end
