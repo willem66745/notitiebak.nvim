@@ -15,6 +15,11 @@ end
 ---@param name string
 ---@param path string
 local function create_note(name, path)
+  local dir = vim.fn.expand(config.notes_directory)
+  if vim.fn.isdirectory(dir) == 0 then
+    vim.fn.mkdir(dir, 'p')
+  end
+
   local buf = vim.api.nvim_create_buf(true, false)
   vim.fn.setbufline(buf, 1, '# ' .. name)
   vim.fn.setbufline(buf, 2, '')
