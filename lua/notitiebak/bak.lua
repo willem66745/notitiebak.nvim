@@ -83,7 +83,7 @@ end
 --- @return integer? buffer
 local function search_note_buffer(filename)
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-    if vim.fn.expand(vim.api.nvim_buf_get_name(buf)) == filename then
+    if vim.fn.expand(vim.api.nvim_buf_get_name(buf)) == vim.fn.expand(filename) then
       if vim.fn.buflisted(buf) == 1 then
         return buf
       end
