@@ -112,4 +112,11 @@ function M.toggle()
   end
 end
 
+-- Is note present
+--- @return boolean
+function M.note_present()
+  local _, filename = general_note_filename()
+  return vim.fn.filereadable(filename) == 1
+end
+
 return M
