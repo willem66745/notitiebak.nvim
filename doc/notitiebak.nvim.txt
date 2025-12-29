@@ -1,4 +1,4 @@
-*notitiebak.nvim.txt*       For NVIM v0.8.0      Last change: 2025 February 10
+*notitiebak.nvim.txt*       For NVIM v0.8.0      Last change: 2025 December 29
 
 ==============================================================================
 Table of Contents                          *notitiebak.nvim-table-of-contents*
